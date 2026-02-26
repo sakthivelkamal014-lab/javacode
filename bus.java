@@ -1,4 +1,4 @@
-package javacode;
+//package javacode;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -53,61 +53,77 @@ class bus {
         ArrayList<Integer> bookedBuses = new ArrayList<>();
         System.out.println("\n\t\t\t\t\t\tBUS RESERVATION SYSTEM");
         System.out.println(" ");
-        while(true)  
-        {
-            ab.display();
-            System.out.println(" ");
-            System.out.print("Enter your choice: ");
-            int choice = scan.nextInt();
-            System.out.println(" ");
-
-            switch(choice)
+        System.out.print("\n\t\tUser Name:");
+        String user = scan.nextLine();
+        System.out.print("\n\t\tPassword:");
+        int pass = scan.nextInt();
+        String us = "sakthivel";
+        int pa = 123;
+        if(user.equals(us) && pass == pa)
+        {    
+            while(true)  
             {
-                case 1:
-                    ab.listOfBus();
-                    break;
+                ab.display();
+                System.out.println(" ");
+                System.out.print("Enter your choice: ");
+                int choice = scan.nextInt();
+                System.out.println(" ");
 
-                case 2:
-                    System.out.print("Enter Bus ID to book: ");
-                    int value = scan.nextInt();
-                    System.out.println(" ");
+                switch(choice)
+                {
+                    case 1:
+                        ab.listOfBus();
+                        break;
 
-                    ab.busBooking(value);
-                    System.out.println("Ticket price: " + li.get(value));
-
-                    bookedBuses.add(value);
-                    break;
-
-                case 3:
-                    if(bookedBuses.isEmpty())
-                    {
-                        System.out.println("NO BOOKING YET!");
+                    case 2:
+                        System.out.print("Enter Bus ID to book: ");
+                        int value = scan.nextInt();
                         System.out.println(" ");
-                    }
-                    else
-                    {
-                        System.out.println("----------------------------");
-                        System.out.println("\nBooked Buses:");
-                        for(int busId : bookedBuses)   
+
+                        ab.busBooking(value);
+                        System.out.println("Ticket price: " + li.get(value));
+
+                        bookedBuses.add(value);
+                        break;
+
+                    case 3:
+                        if(bookedBuses.isEmpty())
                         {
-                            ab.busBooking(busId);
-                            System.out.println("Price: " + li.get(busId));
-                            System.out.println("----------------------------");
+                            System.out.println("NO BOOKING YET!");
+                            System.out.println(" ");
                         }
-                    }
-                    break;
+                        else
+                        {
+                            System.out.println("----------------------------");
+                            System.out.println("\nBooked Buses:");
+                            for(int busId : bookedBuses)   
+                            {
+                                ab.busBooking(busId);
+                                System.out.println("Price: " + li.get(busId));
+                                System.out.println("----------------------------");
+                            }
+                        }
+                        break;
 
-                case 4:
-                    System.out.println(" ");
-                    System.out.println("Thank you! Exiting...");
-                    System.out.println(" ");
-                    scan.close();
-                    return; 
+                    case 4:
+                        System.out.println(" ");
+                        System.out.println("Thank you! Exiting...");
+                        System.out.println(" ");
+                        scan.close();
+                        return; 
 
-                default:
-                    System.out.println("Invalid choice!");
+                    default:
+                        System.out.println("Invalid choice!");
+                }
+                
             }
         }
+        else
+        {
+
+            System.out.println("\n\tInvalid Entry Check Your UserName and  Password");
+        }
     }
+        
 }
 
