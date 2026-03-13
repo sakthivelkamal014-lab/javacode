@@ -52,86 +52,78 @@ class bus {
 
         ArrayList<Integer> bookedBuses = new ArrayList<>();
         System.out.println("\n\t\t\t\t\t\tBUS RESERVATION SYSTEM");
-        System.out.println("\n\t\t1.ADMIN LOGIN\t\t\t2.USER LOGIN");
-        System.out.print("\n\t\tIdentification");
-        int entry = scan.nextInt();
-        switch(entry)
-        {
-            case 1:
-            case 2:
-                scan.nextLine();
-                System.out.print("\n\t\tUser Name:");
-                String user = scan.nextLine();
-                System.out.print("\n\t\tPassword:");
-                int pass = scan.nextInt();
-                String us = "sakthivel";
-                int pa = 123;
-                if(user.equals(us) && pass == pa)
-                {    
-                    while(true)  
-                    {
-                            ab.display();
-                            System.out.println(" ");
-                            System.out.print("Enter your choice: ");
-                            int choice = scan.nextInt();
-                            System.out.println(" ");
-
-                            switch(choice)
-                            {
-                                case 1:
-                                    ab.listOfBus();
-                                    break;
-
-                                case 2:
-                                    System.out.print("Enter Bus ID to book: ");
-                                    int value = scan.nextInt();
-                                    System.out.println(" ");
-
-                                    ab.busBooking(value);
-                                    System.out.println("Ticket price: " + li.get(value));
-
-                                    bookedBuses.add(value);
-                                    break;
-
-                                case 3:
-                                    if(bookedBuses.isEmpty())
-                                    {
-                                        System.out.println("NO BOOKING YET!");
-                                        System.out.println(" ");
-                                    }
-                                    else
-                                    {
-                                        System.out.println("----------------------------");
-                                        System.out.println("\nBooked Buses:");
-                                        for(int busId : bookedBuses)   
-                                        {
-                                            ab.busBooking(busId);
-                                            System.out.println("Price: " + li.get(busId));
-                                            System.out.println("----------------------------");
-                                        }
-                                    }
-                                break;
-
-                                case 4:
-                                    System.out.println(" ");
-                                    System.out.println("Thank you! Exiting...");
-                                    System.out.println(" ");
-                                    
-                                return; 
-
-                            default:
-                                System.out.println("Invalid choice!");
-                            }
-                
-                    }
-                }
-            else
+        System.out.println("\n\t\tUSER LOGIN");
+        
+        System.out.print("\n\t\tUser Name:");
+        String user = scan.nextLine();
+        System.out.print("\n\t\tPassword:");
+        int pass = scan.nextInt();
+        String us = "sakthivel";
+        int pa = 123;
+        if(user.equals(us) && pass == pa)
+        {    
+            while(true)  
             {
+                ab.display();
+                System.out.println(" ");
+                System.out.print("Enter your choice: ");
+                int choice = scan.nextInt();
+                System.out.println(" ");
+                switch(choice)
+                {
+                    case 1:
+                        ab.listOfBus();
+                        break;
 
-                System.out.println("\n\tInvalid Entry Check Your UserName and  Password");
+                    case 2:
+                        System.out.print("Enter Bus ID to book: ");
+                        int value = scan.nextInt();
+                        System.out.println(" ");
+
+                        ab.busBooking(value);
+                        System.out.println("Ticket price: " + li.get(value));
+                        bookedBuses.add(value);
+                        break;
+
+                    case 3:
+                        if(bookedBuses.isEmpty())
+                        {
+                            System.out.println("NO BOOKING YET!");
+                            System.out.println(" ");
+                        }
+                        else
+                        {
+                            System.out.println("----------------------------");
+                            System.out.println("\nBooked Buses:");
+                            for(int busId : bookedBuses)   
+                            {
+                                ab.busBooking(busId);
+                                System.out.println("Price: " + li.get(busId));
+                                System.out.println("----------------------------");
+                            }
+                        }
+                        break;
+
+                    case 4:
+                        System.out.println(" ");
+                        System.out.println("Thank you! Exiting...");
+                        System.out.println(" ");
+                                    
+                        return; 
+
+                    default:
+                        System.out.println("Invalid choice!");
+                    }
+                
+                }
             }
+        else
+        {
 
+            System.out.println("\n\tInvalid Entry Check Your UserName and  Password");
         }
+
+        
         
             scan.close();
     }
